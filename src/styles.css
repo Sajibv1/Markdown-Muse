@@ -1,0 +1,481 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.985 0.002 250);
+  --foreground: oklch(0.145 0.035 265);
+  --card: oklch(0.995 0.001 250);
+  --card-foreground: oklch(0.145 0.035 265);
+  --popover: oklch(0.995 0.001 250);
+  --popover-foreground: oklch(0.145 0.035 265);
+  --primary: oklch(0.488 0.243 264.376);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.01 260);
+  --secondary-foreground: oklch(0.25 0.04 265);
+  --muted: oklch(0.955 0.008 260);
+  --muted-foreground: oklch(0.52 0.04 260);
+  --accent: oklch(0.955 0.015 270);
+  --accent-foreground: oklch(0.25 0.04 265);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.915 0.015 265);
+  --input: oklch(0.915 0.015 265);
+  --ring: oklch(0.488 0.243 264.376);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.13 0.025 270);
+  --foreground: oklch(0.93 0.01 260);
+  --card: oklch(0.17 0.025 270);
+  --card-foreground: oklch(0.93 0.01 260);
+  --popover: oklch(0.17 0.025 270);
+  --popover-foreground: oklch(0.93 0.01 260);
+  --primary: oklch(0.65 0.22 270);
+  --primary-foreground: oklch(0.98 0.005 260);
+  --secondary: oklch(0.22 0.03 270);
+  --secondary-foreground: oklch(0.93 0.01 260);
+  --muted: oklch(0.22 0.025 270);
+  --muted-foreground: oklch(0.65 0.03 260);
+  --accent: oklch(0.22 0.03 280);
+  --accent-foreground: oklch(0.93 0.01 260);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.28 0.025 270);
+  --input: oklch(0.28 0.025 270);
+  --ring: oklch(0.65 0.22 270);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(0.28 0.025 270);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+/* ==========================================
+   Base
+   ========================================== */
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* ==========================================
+   Header toolbar glassmorphism
+   ========================================== */
+
+.header-toolbar {
+  background: oklch(from var(--color-card) l c h / 80%);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+}
+
+.dark .header-toolbar {
+  background: oklch(from var(--color-card) l c h / 60%);
+}
+
+.logo-icon {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.logo-icon:hover {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* ==========================================
+   Format toolbar
+   ========================================== */
+
+.format-toolbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+.format-toolbar::-webkit-scrollbar {
+  height: 3px;
+}
+
+.format-toolbar::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+.format-btn {
+  position: relative;
+}
+
+.format-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  background: linear-gradient(
+    135deg,
+    oklch(0.65 0.22 270 / 10%),
+    oklch(0.55 0.25 310 / 10%)
+  );
+}
+
+.format-btn:hover::after {
+  opacity: 1;
+}
+
+/* ==========================================
+   Editor
+   ========================================== */
+
+.editor-container textarea {
+  tab-size: 2;
+  caret-color: oklch(0.65 0.22 270);
+}
+
+.dark .editor-container textarea {
+  caret-color: oklch(0.75 0.2 270);
+}
+
+.editor-container textarea::selection {
+  background: oklch(0.65 0.22 270 / 25%);
+}
+
+.line-numbers {
+  min-width: 3.5rem;
+  font-variant-numeric: tabular-nums;
+  scrollbar-width: none;
+}
+
+.line-numbers::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================
+   Drag handle
+   ========================================== */
+
+.drag-handle:hover > div:first-child {
+  background: var(--color-primary);
+  box-shadow: 0 0 12px oklch(0.65 0.22 270 / 25%);
+}
+
+/* ==========================================
+   Footer bar
+   ========================================== */
+
+.footer-bar {
+  background: oklch(from var(--color-card) l c h / 50%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ==========================================
+   Markdown preview typography
+   ========================================== */
+
+.markdown-body {
+  color: var(--color-foreground);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.markdown-body > * + * { margin-top: 0.9rem; }
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-foreground);
+  letter-spacing: -0.01em;
+}
+.markdown-body h1 {
+  font-size: 1.9rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--color-border);
+  background: linear-gradient(135deg, var(--color-foreground) 0%, oklch(0.55 0.15 270) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dark .markdown-body h1 {
+  background: linear-gradient(135deg, var(--color-foreground) 0%, oklch(0.75 0.18 270) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.markdown-body h2 {
+  font-size: 1.5rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--color-border);
+}
+.markdown-body h3 { font-size: 1.2rem; }
+.markdown-body h4 { font-size: 1rem; }
+.markdown-body p { margin: 0.6rem 0; }
+.markdown-body a {
+  color: oklch(0.55 0.2 270);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: oklch(0.55 0.2 270 / 40%);
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+.markdown-body a:hover {
+  color: oklch(0.5 0.24 270);
+  text-decoration-color: oklch(0.5 0.24 270);
+}
+.dark .markdown-body a { color: oklch(0.75 0.18 270); text-decoration-color: oklch(0.75 0.18 270 / 40%); }
+.dark .markdown-body a:hover { color: oklch(0.82 0.16 270); text-decoration-color: oklch(0.82 0.16 270); }
+.markdown-body ul, .markdown-body ol { padding-left: 1.5rem; margin: 0.6rem 0; }
+.markdown-body ul { list-style: disc; }
+.markdown-body ol { list-style: decimal; }
+.markdown-body li + li { margin-top: 0.25rem; }
+.markdown-body li::marker { color: oklch(0.55 0.15 270); }
+.dark .markdown-body li::marker { color: oklch(0.65 0.15 270); }
+.markdown-body ul.contains-task-list { list-style: none; padding-left: 0.25rem; }
+.markdown-body .task-list-item { display: flex; gap: 0.5rem; align-items: flex-start; }
+.markdown-body blockquote {
+  border-left: 3px solid oklch(0.55 0.2 270 / 50%);
+  color: var(--color-muted-foreground);
+  padding: 0.2rem 0 0.2rem 1rem;
+  margin: 0.8rem 0;
+  background: oklch(0.55 0.2 270 / 5%);
+  border-radius: 0 6px 6px 0;
+}
+.dark .markdown-body blockquote {
+  border-left-color: oklch(0.65 0.2 270 / 50%);
+  background: oklch(0.65 0.2 270 / 5%);
+}
+.markdown-body code {
+  background: var(--color-muted);
+  color: oklch(0.5 0.18 310);
+  padding: 0.15rem 0.4rem;
+  border-radius: 5px;
+  font-size: 0.87em;
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+.dark .markdown-body code {
+  color: oklch(0.8 0.15 310);
+}
+.markdown-body pre {
+  background: var(--color-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  overflow: auto;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  position: relative;
+}
+.markdown-body pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+  color: var(--color-foreground);
+}
+.markdown-body hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  margin: 2rem 0;
+}
+.markdown-body table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+.markdown-body th, .markdown-body td {
+  border: 1px solid var(--color-border);
+  padding: 0.5rem 0.8rem;
+  text-align: left;
+}
+.markdown-body th {
+  background: var(--color-muted);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-muted-foreground);
+}
+.markdown-body tr:hover td {
+  background: oklch(from var(--color-muted) l c h / 50%);
+}
+.markdown-body img { max-width: 100%; border-radius: 8px; }
+.markdown-body kbd {
+  background: var(--color-muted);
+  border: 1px solid var(--color-border);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  padding: 0.08rem 0.45rem;
+  font-size: 0.84em;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ==========================================
+   Syntax highlighting (highlight.js)
+   ========================================== */
+
+.hljs { color: var(--color-foreground); background: transparent; }
+.hljs-comment, .hljs-quote { color: oklch(0.55 0.02 250); font-style: italic; }
+.hljs-keyword, .hljs-selector-tag, .hljs-literal, .hljs-section, .hljs-link { color: oklch(0.55 0.2 310); }
+.hljs-string, .hljs-attr { color: oklch(0.55 0.16 145); }
+.hljs-number, .hljs-symbol, .hljs-bullet { color: oklch(0.6 0.18 50); }
+.hljs-title, .hljs-name, .hljs-type { color: oklch(0.55 0.2 270); }
+.hljs-variable, .hljs-template-variable { color: oklch(0.6 0.18 30); }
+.hljs-tag { color: oklch(0.55 0.18 250); }
+.dark .hljs-comment, .dark .hljs-quote { color: oklch(0.6 0.03 260); }
+.dark .hljs-keyword, .dark .hljs-selector-tag { color: oklch(0.78 0.16 310); }
+.dark .hljs-string, .dark .hljs-attr { color: oklch(0.8 0.16 145); }
+.dark .hljs-number { color: oklch(0.82 0.16 70); }
+.dark .hljs-title, .dark .hljs-name, .dark .hljs-type, .dark .hljs-tag { color: oklch(0.8 0.16 270); }
+
+/* ==========================================
+   Custom scrollbar styling
+   ========================================== */
+
+.markdown-body::-webkit-scrollbar,
+textarea::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.markdown-body::-webkit-scrollbar-track,
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.markdown-body::-webkit-scrollbar-thumb,
+textarea::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+.markdown-body::-webkit-scrollbar-thumb:hover,
+textarea::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-foreground);
+}
+
+/* ==========================================
+   Animations
+   ========================================== */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.markdown-body > * {
+  animation: fadeSlideUp 0.25s ease-out both;
+}
+
+.markdown-body > *:nth-child(1) { animation-delay: 0ms; }
+.markdown-body > *:nth-child(2) { animation-delay: 30ms; }
+.markdown-body > *:nth-child(3) { animation-delay: 60ms; }
+.markdown-body > *:nth-child(4) { animation-delay: 90ms; }
+.markdown-body > *:nth-child(5) { animation-delay: 120ms; }
